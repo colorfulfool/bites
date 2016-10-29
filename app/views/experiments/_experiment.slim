@@ -1,0 +1,4 @@
+.experiment data-id=(experiment.id)
+  .line = render experiment.assumption
+  .line = experiment.result ? render(experiment.result) : link_to('Log results', new_experiment_result(experiment))
+  .line = experiment.action ? render(experiment.action) : link_to('Take action', new_experiment_action(experiment))

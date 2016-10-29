@@ -1,0 +1,10 @@
+= form_for @experiment do |experiment|
+  = experiment.hidden_field :laboratory_id
+
+  .chat-transcript
+    = render @experiment.result
+  .your-reply
+    = experiment.fields_for :result do |result|
+      = result.text_field :body
+  
+  = experiment.submit
