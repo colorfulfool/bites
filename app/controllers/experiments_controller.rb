@@ -5,6 +5,10 @@ class ExperimentsController < ApplicationController
     @experiments = @laboratory.experiments
   end
 
+  def forefront
+    @experiments = @laboratory.experiments.without_children
+  end
+
   def show
   end
 
@@ -13,7 +17,7 @@ class ExperimentsController < ApplicationController
   end
 
   def create
-    @experiment = Experiment.build(experiment_params)
+    @experiment = Experiment.new(experiment_params)
 
     respond_to do |format|
       if @experiment.save
@@ -44,6 +48,10 @@ private
   end
 
   def experiment_params
-    params.require(:experiment).permit(:assumption => [:body], :result => [:body], :action => [:body])
+    params.require(:experiment).permit(
+      :assumption => [:id, :body], 
+      :result => [:id, :body], 
+      :action => [:id, :body]
+    )
   end
 end

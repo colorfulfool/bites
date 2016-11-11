@@ -1,0 +1,9 @@
+<%= form_for @experiment do |experiment| %>
+  <%= experiment.hidden_field :laboratory_id %>
+  <div class="your-reply">
+    <%= experiment.fields_for :assumption do |assumption| %>
+      <%= assumption.text_field :body %>
+    <% end %>
+    <%= experiment.submit %>
+  </div>
+<% end %>

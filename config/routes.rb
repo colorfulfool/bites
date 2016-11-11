@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   root 'laboratories#index'
 
   resources :laboratories, only: [:new, :create, :index, :show], path: '' do
-    resources :experiments, only: [:index]
+    resources :experiments, only: [:index] do
+      get 'forefront', on: :collection
+    end
+
     resources :assumptions, only: [:index]
     resources :results, only: [:index]
     resources :actions, only: [:index]

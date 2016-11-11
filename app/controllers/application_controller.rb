@@ -5,9 +5,13 @@ class ApplicationController < ActionController::Base
 
   before_action :fetch_parent
 
+  def current_laboratory
+    @laboratory || @experiment&.laboratory
+  end
+
 private
 
-  def fetch_parent_models
+  def fetch_parent
     @laboratory = Laboratory.find(params[:laboratory_id]) if params[:laboratory_id]
     @experiment = Experiment.find(params[:experiment_id]) if params[:experiment_id]
   end
