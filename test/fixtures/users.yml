@@ -1,0 +1,14 @@
+anton:
+  full_name: Anton Khamets
+  email: colorfulfool@gmail.com
+  password_digest: <%= BCrypt::Password.create('secret', cost: 4) %>
+
+per:
+  full_name: Per Jonsson
+  email: per@everyday.school
+  password_digest: <%= BCrypt::Password.create('secret', cost: 4) %>
+
+dano:
+  full_name: Dano Marr
+  email: dano@everyday.school
+  password_digest: <%= BCrypt::Password.create('secret', cost: 4) %>

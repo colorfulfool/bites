@@ -3,47 +3,30 @@ require 'test_helper'
 class ExperimentsControllerTest < ActionController::TestCase
   setup do
     @experiment = experiments(:one)
+    current_user_is people(:dano)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:experiments)
-  end
+  test "overwrites last_updator on update" do
+    refute @experiment.action.present?
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create experiment" do
-    assert_difference('Experiment.count') do
-      post :create, experiment: { action: @experiment.action, assumption: @experiment.assumption, result: @experiment.result }
-    end
-
+    patch :update, id: @experiment, experiment: { action_attributes: {body: 'Abandon ship'} }
     assert_redirected_to experiment_path(assigns(:experiment))
+
+    @experiment.reload
+    assert_equal 'Abandon ship', @experiment.action.body
+    assert_equal people(:dano), @experiment.action.last_updator
   end
 
-  test "should show experiment" do
-    get :show, id: @experiment
-    assert_response :success
-  end
+  # test "should create experiment" do
+  #   assert_difference('Experiment.count') do
+  #     post :create, experiment: { action: @experiment.action, assumption: @experiment.assumption, result: @experiment.result }
+  #   end
 
-  test "should get edit" do
-    get :edit, id: @experiment
-    assert_response :success
-  end
+  #   assert_redirected_to experiment_path(assigns(:experiment))
+  # end
 
-  test "should update experiment" do
-    patch :update, id: @experiment, experiment: { action: @experiment.action, assumption: @experiment.assumption, result: @experiment.result }
-    assert_redirected_to experiment_path(assigns(:experiment))
-  end
-
-  test "should destroy experiment" do
-    assert_difference('Experiment.count', -1) do
-      delete :destroy, id: @experiment
-    end
-
-    assert_redirected_to experiments_path
-  end
+  # test "should show experiment" do
+  #   get :show, id: @experiment
+  #   assert_response :success
+  # end
 end

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'laboratories/index'
+  root 'laboratories#index'
 
   resources :laboratories, only: [:new, :create, :index, :show], path: '' do
     resources :experiments, only: [:index]
