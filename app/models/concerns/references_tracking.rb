@@ -7,8 +7,8 @@ module ReferencesTracking
     has_many :assumption_references
     has_many :referenced_by_assumption # backlink
 
-    before_save :update_references_from_text
     before_save :update_name_from_text
+    before_save :update_references_from_text
   end
 
   def parents
@@ -21,7 +21,7 @@ module ReferencesTracking
 
   def update_references_from_text
     assumption_references = ReferencesDetector.references_in assumption.body
-    action_references = ReferencesDetector.references_in action.body
+    action_references = ReferencesDetector.references_in action.body if action.present?
   end
 
   def update_name_from_text
