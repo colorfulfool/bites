@@ -1,9 +1,9 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+long_survey:
+  experiment: long_survey
+  body: Try [long TypeForm survey]
+  last_updator: per
 
-one:
-  body: MyString
-  experiment: one
-
-two:
-  body: MyString
-  experiment: two
+short_survey:
+  experiment: short_survey
+  body: Try [short survey]
+  last_updator: anton

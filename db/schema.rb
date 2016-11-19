@@ -10,19 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028214400) do
+ActiveRecord::Schema.define(version: 20161118225545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "actions", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "experiment_id"
+    t.integer  "last_updator_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["experiment_id"], name: "index_actions_on_experiment_id", using: :btree
+    t.index ["last_updator_id"], name: "index_actions_on_last_updator_id", using: :btree
+  end
+
   create_table "assumptions", force: :cascade do |t|
     t.string   "body"
     t.integer  "experiment_id"
-    t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "last_updator_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["experiment_id"], name: "index_assumptions_on_experiment_id", using: :btree
-    t.index ["user_id"], name: "index_assumptions_on_user_id", using: :btree
+    t.index ["last_updator_id"], name: "index_assumptions_on_last_updator_id", using: :btree
   end
 
   create_table "experiments", force: :cascade do |t|
@@ -40,6 +50,16 @@ ActiveRecord::Schema.define(version: 20161028214400) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "results", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "experiment_id"
+    t.integer  "last_updator_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["experiment_id"], name: "index_results_on_experiment_id", using: :btree
+    t.index ["last_updator_id"], name: "index_results_on_last_updator_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "full_name"
@@ -48,7 +68,8 @@ ActiveRecord::Schema.define(version: 20161028214400) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "actions", "experiments"
   add_foreign_key "assumptions", "experiments"
-  add_foreign_key "assumptions", "users"
   add_foreign_key "experiments", "laboratories"
+  add_foreign_key "results", "experiments"
 end

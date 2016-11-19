@@ -1,0 +1,3 @@
+switch_to_short_survey:
+  experiment: long_survey
+  body: Switch to [short survey]

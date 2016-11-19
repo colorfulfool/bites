@@ -1,0 +1,9 @@
+response_rate_bad:
+  body: Response rate was 5%
+  experiment: long_survey
+  last_updator: anton
+
+response_rate_good:
+  body: Response rate was 24%
+  experiment: long_survey
+  last_updator: anton

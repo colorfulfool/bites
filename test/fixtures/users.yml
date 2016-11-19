@@ -12,3 +12,8 @@ dano:
   full_name: Dano Marr
   email: dano@everyday.school
   password_digest: <%= BCrypt::Password.create('secret', cost: 4) %>
+
+ashkan:
+  full_name: Anskan Safaee
+  email: ashkan@everyday.school
+  password_digest: <%= BCrypt::Password.create('secret', cost: 4) %>

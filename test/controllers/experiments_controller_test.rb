@@ -2,19 +2,20 @@ require 'test_helper'
 
 class ExperimentsControllerTest < ActionController::TestCase
   setup do
-    @experiment = experiments(:one)
-    current_user_is people(:dano)
+    @experiment = experiments(:short_survey)
+    current_user_is users(:dano)
   end
 
   test "overwrites last_updator on update" do
-    refute @experiment.action.present?
+    assert @experiment.action.nil?
 
     patch :update, id: @experiment, experiment: { action_attributes: {body: 'Abandon ship'} }
-    assert_redirected_to experiment_path(assigns(:experiment))
+    assert_response :found
+    # assert_redirected_to experiment_path assigns(:experiment)
 
     @experiment.reload
     assert_equal 'Abandon ship', @experiment.action.body
-    assert_equal people(:dano), @experiment.action.last_updator
+    assert_equal users(:dano), @experiment.action.last_updator
   end
 
   # test "should create experiment" do

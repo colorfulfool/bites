@@ -1,8 +1,5 @@
 long_survey:
-  assumption: Try long TypeForm survey
-  result: Response rate was 9%
-  action: Switch to [short survey]
+  laboratory: school
 
 short_survey:
-  assumption: Try [short survey]
-  result: Response rate was 21%
+  laboratory: school

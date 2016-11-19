@@ -34,7 +34,7 @@ class ExperimentsController < ApplicationController
     respond_to do |format|
       if @experiment.update(experiment_params)
         @experiment.inject_last_updator(current_user)
-        
+
         format.html { redirect_to @experiment }
         format.js
       end
@@ -49,9 +49,9 @@ private
 
   def experiment_params
     params.require(:experiment).permit(
-      :assumption => [:id, :body], 
-      :result => [:id, :body], 
-      :action => [:id, :body]
+      :assumption_attributes => [:id, :body], 
+      :result_attributes => [:id, :body], 
+      :action_attributes => [:id, :body]
     )
   end
 end
