@@ -7,6 +7,8 @@ class Experiment < ApplicationRecord
 
   accepts_nested_attributes_for :assumption, :result, :action
 
+  include ReferencesTracking
+
   def inject_last_updator(user)
     updated_line = [assumption, result, action].compact.max_by(&:updated_at)
     updated_line.update_attribute(:last_updator, user)

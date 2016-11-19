@@ -1,3 +1,8 @@
+people_like:
+  experiment: need_feedback
+  body: People like our classes
+  last_updator: per
+
 long_survey:
   experiment: long_survey
   body: Try [long TypeForm survey]

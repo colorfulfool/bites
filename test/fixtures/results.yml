@@ -1,9 +1,14 @@
+people_dont_come_back:
+  experiment: need_feedback
+  body: People don't come back for more
+  last_updator: ashkan
+
 response_rate_bad:
-  body: Response rate was 5%
   experiment: long_survey
+  body: Response rate was 5%
   last_updator: anton
 
 response_rate_good:
-  body: Response rate was 24%
   experiment: long_survey
+  body: Response rate was 24%
   last_updator: anton

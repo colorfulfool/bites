@@ -1,3 +1,8 @@
+send_out_survey:
+  experiment: need_feedback
+  body: Send out a survey to learn what’s up
+  last_updator: anton
+
 switch_to_short_survey:
   experiment: long_survey
   body: Switch to [short survey]
