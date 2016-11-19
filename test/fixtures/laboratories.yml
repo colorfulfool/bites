@@ -1,7 +1,9 @@
 school:
   name: Everyday School
   description: Knowledgebase of everything we tried while building the school.
+  owner: anton
 
 life:
   name: Life
   description: Relentlessly stumbling in the right direction.
+  owner: anton
