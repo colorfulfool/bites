@@ -11,7 +11,7 @@ private
       if @user.authenticate(params[:user][:password])
         log_in @user
         flash[:notice] = I18n.t('welcome.logged_in', user: @user.first_name)
-        redirect_to root_path
+        redirect_to session[:next] || root_path
       else
         @user.errors[:password] << 'Wrong password'
       end

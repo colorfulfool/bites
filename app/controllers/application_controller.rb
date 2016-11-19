@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
     @laboratory || @experiment&.laboratory
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    session[:next] = request.path
+    redirect_to new_session_path
+  end
+
 private
 
   def fetch_parent_resource
