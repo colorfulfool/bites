@@ -1,0 +1,9 @@
+<% [:anton, :ashkan, :dano, :per].each do |user| %>
+  school_<%= user %>:
+    laboratory: school
+    user: <%= user %>
+<% end %>
+
+life_anton:
+  laboratory: life
+  user: anton
