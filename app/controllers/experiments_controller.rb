@@ -35,6 +35,9 @@ class ExperimentsController < ApplicationController
       if @experiment.update(experiment_params)
         @experiment.inject_last_updator(current_user)
 
+        # TODO: return the user to the same place he came from
+        # redirect_to_previous_screen anchor: @experiment
+        # redirect_to assumptions_path(current_laboratory, experiment: @experiment.id)
         format.html { redirect_to @experiment }
         format.js
       end

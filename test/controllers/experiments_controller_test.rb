@@ -16,6 +16,7 @@ class ExperimentsControllerTest < ActionController::TestCase
     @experiment.reload
     assert_equal 'Abandon ship', @experiment.action.body
     assert_equal users(:dano), @experiment.action.last_updator
+    assert_equal users(:anton), @experiment.assumption.last_updator
   end
 
   # test "should create experiment" do
