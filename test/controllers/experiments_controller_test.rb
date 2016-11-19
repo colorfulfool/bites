@@ -1,15 +1,17 @@
 require 'test_helper'
 
-class ExperimentsControllerTest < ActionController::TestCase
+class ExperimentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @experiment = experiments(:short_survey)
-    current_user_is users(:dano)
+    log_in_as users(:dano)
   end
 
   test "overwrites last_updator on update" do
     assert @experiment.action.nil?
 
-    patch :update, id: @experiment, experiment: { action_attributes: {body: 'Abandon ship'} }
+    patch experiment_path(@experiment), params: {
+      experiment: { action_attributes: {body: 'Abandon ship'} }
+    }
     assert_response :found
     # assert_redirected_to experiment_path assigns(:experiment)
 

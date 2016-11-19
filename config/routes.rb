@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resource :action, only: [:new]
   end
 
+  resources :sessions, only: [:new, :create]
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

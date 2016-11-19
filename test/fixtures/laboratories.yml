@@ -2,8 +2,10 @@ school:
   name: Everyday School
   description: Knowledgebase of everything we tried while building the school.
   owner: anton
+  slug: everyday-school
 
 life:
   name: Life
   description: Relentlessly stumbling in the right direction.
   owner: anton
+  slug: progression
