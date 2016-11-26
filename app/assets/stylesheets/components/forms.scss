@@ -1,0 +1,26 @@
+@import "colors";
+
+form {
+  margin-bottom: 0px;
+
+  input:not([type=submit]), textarea { 
+    font-size: 16px; padding: 5px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    &:focus { 
+      outline: none;
+      box-shadow:0 0 5px $piercing-blue;
+      border-color: $piercing-blue;
+    }
+  }
+  textarea { resize: vertical; }
+  .button { border: none; outline: none; }
+
+  .field_with_errors {
+    input { border: 1px solid red !important; }
+  }
+}
+
+form.simple {
+  input { display: block; margin-bottom: 10px; }
+}

@@ -1,0 +1,5 @@
+= form_for :user, url: sessions_path, class: 'simple' do |user|
+  = user.email_field :email
+  = user.password_field :password
+
+  = user.submit 'Log in'
