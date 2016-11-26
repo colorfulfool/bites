@@ -12,4 +12,9 @@ class LaboratoriesControllerTest < ActionDispatch::IntegrationTest
     get laboratories_path
     assert_redirected_to laboratories(:school)
   end
+
+  test "find a Laboratory by its slug" do
+    log_in_as users(:anton)
+    get "/#{laboratories(:school).slug}"
+  end
 end

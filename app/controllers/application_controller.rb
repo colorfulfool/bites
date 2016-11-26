@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   before_action :fetch_parent_resource
 
+  helper_method :current_laboratory
+
   include Authentication
 
   def current_laboratory

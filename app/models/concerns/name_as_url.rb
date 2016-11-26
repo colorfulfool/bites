@@ -2,14 +2,11 @@ module NameAsUrl
   extend ActiveSupport::Concern
 
   included do
-    before_save :populate_slug
+    extend FriendlyId
+    friendly_id :name, use: [:slugged, :finders]
   end
 
-  def populate_slug
-    self.slug = product.name.parameterize unless slug.present?
-  end
-
-  def to_param
-    slug
+  def should_generate_new_friendly_id?
+    slug.nil?
   end
 end

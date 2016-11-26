@@ -19,6 +19,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'slim-rails'
 
 gem 'cancancan'
+gem 'friendly_id', github: 'norman/friendly_id'
 
 group :development, :test do
   gem 'byebug'
