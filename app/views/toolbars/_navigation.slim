@@ -4,14 +4,14 @@
   .conjoined-buttons
     = navigational_link laboratory_assumptions_path(current_laboratory) do
       span Assumptions
-      span to test
+      span to be tested
 
     = navigational_link laboratory_results_path(current_laboratory) do
       span Results
-      span to evaluate
+      span to be evaluated
 
     = navigational_link laboratory_actions_path(current_laboratory) do
       span Actions
-      span to take
+      span to be taken
 
   = navigational_link 'State of Affairs', forefront_laboratory_experiments_path(current_laboratory)

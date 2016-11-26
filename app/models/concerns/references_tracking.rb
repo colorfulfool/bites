@@ -27,4 +27,8 @@ module ReferencesTracking
   def update_name_from_text
     self.name = ReferencesDetector.declarations_in(assumption.body).first
   end
+
+  def attempt_to_turn_declarations_into_references
+    action_references = declarations_in(action.body)
+  end
 end
