@@ -1,4 +1,6 @@
 .experiment data-id=(experiment.id)
-  .line = text_or_button(experiment, :assumption, 'Make an assumption')
-  .line = text_or_button(experiment, :result, 'Log results') if experiment.assumption.present?
-  .line = text_or_button(experiment, :action, 'Take action') if experiment.result.present?
+  = link_to experiment
+    = render_experiment_line(experiment.assumption)
+    = render_experiment_line(experiment.result)
+    = render_experiment_line(experiment.action)
+  = render_button_for experiment

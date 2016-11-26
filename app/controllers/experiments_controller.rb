@@ -14,6 +14,7 @@ class ExperimentsController < ApplicationController
 
   def new
     @experiment = @laboratory.experiments.build
+    render 'assumptions/new'
   end
 
   def create

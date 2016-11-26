@@ -7,7 +7,7 @@ class Ability
         user.in? laboratory.users
       end
       can :manage, Experiment do |experiment|
-        user.in? experiment.laboratory.users
+        experiment.new_record? or user.in? experiment.laboratory.users
       end
 
       can :manage, Laboratory do |laboratory|
