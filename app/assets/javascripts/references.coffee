@@ -7,5 +7,8 @@
   else
     "[#{name}]"
 
+@declarationsIn = (text) ->
+  text.match(/\[([\S ]+)\]/g)
+
 @firstDeclarationIn = (text) ->
-  text.match(/\[([\S ]+)\]/g)[0]
+  declarationsIn(text)[0]

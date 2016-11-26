@@ -1,12 +1,18 @@
 class ExperimentForm
   constructor: (@container) ->
+    attachParentHandlers()
     attachChildHandlers()
 
-  attachChildHandlers: ->
-    @container.on 'type', '.child input[name=assumption]', ->
-      updateParentsReferenceTo nameOfExperiment(this), idOfExperiment(this)
+  attachParentHandlers: ->
+    @container.on 'change', '.parent input[name=action]', ->
+      proposeChildrenWithNames declarationsIn $(this).val()
 
-    @container.on 'ajax:success', '.child form', ->
+  attachChildHandlers: ->
+    @container.on 'change', '.children input[name=assumption]', ->
+      originalName = $(this).find('input[name=original_name]').val()
+      updateParentsReferenceTo originalName, idOfExperiment(this)
+
+    @container.on 'ajax:success', '.children form', ->
       updateParentsReferenceTo nameOfExperiment(this), idOfExperiment(this)
 
   updateParentsReferenceTo: (name, id = null) ->
