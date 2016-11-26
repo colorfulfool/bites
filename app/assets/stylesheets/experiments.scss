@@ -1,5 +1,7 @@
+@import "colors";
+
 .experiment {
-  margin-bottom: 2em;
+  margin-bottom: $baseline * 2;
 
   a { color: black; text-decoration: none; }
 }

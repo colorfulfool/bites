@@ -1,0 +1,19 @@
+@import "colors";
+
+@mixin pressable-with-border-of-depth($depth, $color) {
+  position: relative; top: $depth * -1;
+  margin-left: -1px; margin-right: -1px;
+  border: 1px solid $color;
+  box-shadow: 0 $depth 0px $color;
+  &:active { 
+    box-shadow: 0 1px 0px $color;
+    top: 0px;
+  }
+}
+
+.button {
+  padding: 4px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  @include pressable-with-border-of-depth(4px, $gray);
+}
