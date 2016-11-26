@@ -1,9 +1,0 @@
-.top-level-toolbar
-  = link_to image_tag('logo'), root_path
-
-  .stages
-    = navigational_link 'Assumptions', laboratory_assumptions_path(current_laboratory)
-    = navigational_link 'Results', laboratory_results_path(current_laboratory)
-    = navigational_link 'Actions', laboratory_actions_path(current_laboratory)
-
-  = navigational_link 'State of Affairs', forefront_laboratory_experiments_path(current_laboratory)

@@ -1,0 +1,39 @@
+@import "colors";
+
+$top-toolbar: #A6D7E3;
+
+.toolbar {
+  border-bottom: 1px solid $gray;
+  padding: 7px;
+  a { color: black; text-decoration: none; }
+}
+
+.top-level.toolbar {
+  display: flex;
+  align-items: center;
+
+  background: linear-gradient(0deg, $top-toolbar, lighten($top-toolbar, 10));
+  box-shadow: 0px 0px 10px rgba(black, 0.5);
+
+  .logo { margin-right: 30px; }
+  
+  .conjoined-buttons {
+    margin-right: 20px;
+
+    border-radius: 10px;
+    border: 1px solid $half-gray;
+    background-color: white;
+    font-size: 18px;
+
+    a { 
+      display: inline-block;
+      text-align: center;
+      width: 134px; padding: 6px 0px; 
+      span:nth-child(2) { 
+        display: block; font-size: small; 
+        color: $gray; line-height: 12px;
+      }
+    }
+    a:not(:nth-last-child(1)) { border-right: 1px solid $half-gray; }
+  }
+}

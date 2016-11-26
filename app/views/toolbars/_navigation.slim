@@ -1,0 +1,17 @@
+.top-level.toolbar
+  = link_to image_tag('logo'), root_path, class: 'logo'
+
+  .conjoined-buttons
+    = navigational_link laboratory_assumptions_path(current_laboratory) do
+      span Assumptions
+      span to test
+
+    = navigational_link laboratory_results_path(current_laboratory) do
+      span Results
+      span to evaluate
+
+    = navigational_link laboratory_actions_path(current_laboratory) do
+      span Actions
+      span to take
+
+  = navigational_link 'State of Affairs', forefront_laboratory_experiments_path(current_laboratory)
